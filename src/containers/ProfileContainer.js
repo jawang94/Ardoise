@@ -25,6 +25,7 @@ class ProfileContainer extends Component {
     return (
       <View style={styles.wrapper}>
         <Text>Profile Container</Text>
+        <Text>Click the arrow to logout</Text>
         <NextArrowButton handleNextButton={this.handleNextButton} />
       </View>
     );
