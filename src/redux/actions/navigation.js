@@ -18,4 +18,12 @@ const logIn = (email, password) => {
   return action;
 };
 
-export { logIn, setLoggedInState };
+const logOut = () => {
+  const action = dispatch => {
+    dispatch(setLoggedInState(false));
+    return true;
+  };
+  return action;
+};
+
+export { logIn, setLoggedInState, logOut };
