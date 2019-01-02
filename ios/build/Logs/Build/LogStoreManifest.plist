@@ -5,6 +5,36 @@
 	<key>logFormatVersion</key>
 	<integer>9</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>BBE431AC-7DBE-46AC-A135-8628C1FF3BDE</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BBE431AC-7DBE-46AC-A135-8628C1FF3BDE.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>AirbnbClone project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>AirbnbClone</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project AirbnbClone with scheme AirbnbClone and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>568102872.81135702</real>
+			<key>timeStoppedRecording</key>
+			<real>568102878.44156599</real>
+			<key>title</key>
+			<string>Building project AirbnbClone with scheme AirbnbClone and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>BBE431AC-7DBE-46AC-A135-8628C1FF3BDE</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

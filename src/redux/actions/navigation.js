@@ -8,7 +8,10 @@ const setLoggedInState = loggedInState => ({
 
 const logIn = (email, password) => {
   const action = dispatch => {
-    if (email === user.email && password === user.password) {
+    if (
+      email.toLowerCase() === user.email.toLowerCase() &&
+      password === user.password
+    ) {
       dispatch(setLoggedInState(true));
       return true;
     }

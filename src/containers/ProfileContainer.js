@@ -4,16 +4,16 @@ import { View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ActionCreators from "../redux/actions";
-import NextArrowButton from "../components/buttons/NextArrowButton";
+import RoundedButton from "../components/buttons/RoundedButton";
+import colors from "../styles/colors";
 
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
-
-    this.handleNextButton = this.handleNextButton.bind(this);
+    this.handleOnPress = this.handleOnPress.bind(this);
   }
 
-  handleNextButton() {
+  handleOnPress() {
     const { logOut, navigation } = this.props;
     const { navigate } = navigation;
     if (logOut()) {
@@ -25,8 +25,12 @@ class ProfileContainer extends Component {
     return (
       <View style={styles.wrapper}>
         <Text>Profile Container</Text>
-        <Text>Click the arrow to logout</Text>
-        <NextArrowButton handleNextButton={this.handleNextButton} />
+        <RoundedButton
+          text="Logout"
+          background={colors.green01}
+          textColor={colors.white}
+          handleOnPress={this.handleOnPress}
+        />
       </View>
     );
   }
