@@ -16,6 +16,6 @@ export default class SavedContainer extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
-    backgroundColor: colors.white
-  }
+    backgroundColor: colors.white,
+  },
 });

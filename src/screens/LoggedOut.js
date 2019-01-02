@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  ScrollView
-} from "react-native";
+import { Text, View, Image, TouchableHighlight, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import colors from "../styles/colors";
 import transparentHeaderStyle from "../styles/navigation";
@@ -27,7 +21,7 @@ export default class LoggedOut extends Component {
     ),
     headerStyle: transparentHeaderStyle,
     headerTransparent: true,
-    headerTintColor: colors.white
+    headerTintColor: colors.white,
   });
 
   static onFacebookPress() {
@@ -52,13 +46,7 @@ export default class LoggedOut extends Component {
             text="Continue with Facebook"
             textColor={colors.green01}
             background={colors.white}
-            icon={
-              <Icon
-                name="facebook"
-                size={20}
-                style={styles.facebookButtonIcon}
-              />
-            }
+            icon={<Icon name="facebook" size={20} style={styles.facebookButtonIcon} />}
             handleOnPress={this.onFacebookPress}
           />
           <RoundedButton
@@ -67,18 +55,13 @@ export default class LoggedOut extends Component {
             handleOnPress={this.onCreateAccountPress}
           />
 
-          <TouchableHighlight
-            style={styles.moreOptionsButton}
-            onPress={this.onMoreOptionsPress}
-          >
+          <TouchableHighlight style={styles.moreOptionsButton} onPress={this.onMoreOptionsPress}>
             <Text style={styles.moreOptionsButtonText}>More options</Text>
           </TouchableHighlight>
           <View style={styles.termsAndConditions}>
-            <Text style={styles.termsText}>
-              By tapping Continue, Create Account or More
-            </Text>
-            <Text style={styles.termsText}>{" options,"}</Text>
-            <Text style={styles.termsText}>{"I agree to Ardoise's "}</Text>
+            <Text style={styles.termsText}>By tapping Continue, Create Account or More</Text>
+            <Text style={styles.termsText}> options,</Text>
+            <Text style={styles.termsText}>I agree to Ardoise's </Text>
             <TouchableHighlight style={styles.linkButton}>
               <Text style={styles.termsText}>Terms of Service</Text>
             </TouchableHighlight>

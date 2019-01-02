@@ -13,7 +13,7 @@ class ExploreContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      favouriteListings: []
+      favouriteListings: [],
     };
     this.handleAddToFav = this.handleAddToFav.bind(this);
     this.renderListings = this.renderListings.bind(this);
@@ -22,6 +22,16 @@ class ExploreContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
+  }
+
+  onCreateListClose(listingId, listCreated) {
+    let { favouriteListings } = this.state;
+    if (listCreated) {
+      favouriteListings.push(listingId);
+    } else {
+      favouriteListings = favouriteListings.filter(item => item !== listingId);
+    }
+    this.setState({ favouriteListings });
   }
 
   handleAddToFav(listing) {
@@ -35,19 +45,9 @@ class ExploreContainer extends Component {
     } else {
       navigate("CreateList", {
         listing,
-        onCreateListClose: this.onCreateListClose
+        onCreateListClose: this.onCreateListClose,
       });
     }
-  }
-
-  onCreateListClose(listingId, listCreated) {
-    let { favouriteListings } = this.state;
-    if (listCreated) {
-      favouriteListings.push(listingId);
-    } else {
-      favouriteListings = favouriteListings.filter(item => item !== listingId);
-    }
-    this.setState({ favouriteListings });
   }
 
   renderListings() {
@@ -74,10 +74,7 @@ class ExploreContainer extends Component {
     return (
       <View style={styles.wrapper}>
         <SearchBar />
-        <ScrollView
-          style={styles.scrollview}
-          contentContainerStyle={styles.scrollViewContent}
-        >
+        <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollViewContent}>
           <Text style={styles.heading}>Explore Airbnb</Text>
           <View style={styles.categories}>
             <Categories categories={categoriesList} />
@@ -92,24 +89,24 @@ class ExploreContainer extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   scrollview: {
-    paddingTop: 100
+    paddingTop: 100,
   },
   scrollViewContent: {
-    paddingBottom: 80
+    paddingBottom: 80,
   },
   categories: {
-    marginBottom: 40
+    marginBottom: 40,
   },
   heading: {
     fontSize: 22,
     fontWeight: "600",
     paddingLeft: 20,
     paddingBottom: 20,
-    color: colors.gray04
-  }
+    color: colors.gray04,
+  },
 });
 
 const ListingsQuery = gql`

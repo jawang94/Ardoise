@@ -18,7 +18,7 @@ export default class HeartButton extends Component {
   addToFavorite() {
     this.setState(
       {
-        addedToFavorite: !this.state.addedToFavorite
+        addedToFavorite: !this.state.addedToFavorite,
       },
       () => {
         this.props.onPress();
@@ -43,10 +43,7 @@ export default class HeartButton extends Component {
             name="heart-o"
             size={18}
             color={color}
-            style={[
-              { display: addedToFavorite ? "flex" : "none" },
-              styles.selectedColor
-            ]}
+            style={[{ display: addedToFavorite ? "flex" : "none" }, styles.selectedColor]}
           />
         </View>
       </TouchableOpacity>
@@ -57,13 +54,13 @@ export default class HeartButton extends Component {
 HeartButton.propTypes = {
   color: PropTypes.string.isRequired,
   selectedColor: PropTypes.string.isRequired,
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({
   selectedColor: {
     position: "absolute",
     left: 0,
-    top: 0
-  }
+    top: 0,
+  },
 });

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   TouchableNativeFeedback,
   Platform,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import colors from "../../styles/colors";
 
@@ -25,7 +25,7 @@ export default class RoundedButton extends Component {
       textWeight,
       iconPosition,
       textAlign,
-      borderColor
+      borderColor,
     } = this.props;
     const backgroundColor = background || "transparent";
     const color = textColor || colors.black;
@@ -36,8 +36,7 @@ export default class RoundedButton extends Component {
     const border = borderColor || colors.white;
     const opacityStyle = disabled || loading ? 0.5 : 1;
     const textOpacity = loading ? 0 : 1;
-    const rippleColor =
-      backgroundColor === "transparent" ? color : "rgba(0,0,0,0.4)";
+    const rippleColor = backgroundColor === "transparent" ? color : "rgba(0,0,0,0.4)";
 
     const ButtonComponent = buttonProps => {
       if (Platform.OS === "ios") {
@@ -45,7 +44,7 @@ export default class RoundedButton extends Component {
           <TouchableOpacity
             style={[
               { opacity: opacityStyle, backgroundColor, borderColor: border },
-              styles.iosWrapper
+              styles.iosWrapper,
             ]}
             onPress={handleOnPress}
             activeOpacity={0.6}
@@ -58,17 +57,12 @@ export default class RoundedButton extends Component {
       return (
         <View style={[styles.androidWrapper, { borderColor: border }]}>
           <TouchableNativeFeedback
-            useForeground={true}
+            useForeground
             onPress={handleOnPress}
             disabled={disabled || loading}
             background={TouchableNativeFeedback.Ripple(rippleColor, false)}
           >
-            <View
-              style={[
-                { opacity: opacityStyle, backgroundColor },
-                styles.androidButtonText
-              ]}
-            >
+            <View style={[{ opacity: opacityStyle, backgroundColor }, styles.androidButtonText]}>
               {buttonProps.children}
             </View>
           </TouchableNativeFeedback>
@@ -82,10 +76,7 @@ export default class RoundedButton extends Component {
           {iconLocation === "left" && !loading ? icon : null}
           {loading ? (
             <View style={styles.loaderContainer}>
-              <Image
-                style={styles.loaderImage}
-                source={require("../../img/whiteLoader.gif")}
-              />
+              <Image style={styles.loaderImage} source={require("../../img/whiteLoader.gif")} />
             </View>
           ) : null}
           <Text
@@ -95,9 +86,9 @@ export default class RoundedButton extends Component {
                 color,
                 fontSize,
                 fontWeight,
-                textAlign: alignPosition
+                textAlign: alignPosition,
               },
-              styles.buttonText
+              styles.buttonText,
             ]}
           >
             {text}
@@ -121,7 +112,7 @@ RoundedButton.propTypes = {
   iconPosition: PropTypes.string,
   handleOnPress: PropTypes.func,
   disabled: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
@@ -134,13 +125,13 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: 1,
     marginBottom: 15,
-    alignItems: "center"
+    alignItems: "center",
   },
   androidWrapper: {
     overflow: "hidden",
     borderRadius: 40,
     borderWidth: 1,
-    marginBottom: 15
+    marginBottom: 15,
   },
   androidButtonText: {
     display: "flex",
@@ -148,14 +139,14 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     padding: 12,
     paddingBottom: 12,
-    alignItems: "center"
+    alignItems: "center",
   },
   buttonTextWrapper: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   buttonText: {
-    width: "100%"
+    width: "100%",
   },
   loaderContainer: {
     width: 90,
@@ -165,7 +156,7 @@ const styles = StyleSheet.create({
     left: "50%",
     top: "50%",
     marginLeft: -45,
-    marginTop: -45
+    marginTop: -45,
   },
   loaderImage: {
     width: 40,
@@ -175,6 +166,6 @@ const styles = StyleSheet.create({
     left: "50%",
     marginLeft: -20,
     top: "50%",
-    marginTop: -20
-  }
+    marginTop: -20,
+  },
 });

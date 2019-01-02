@@ -39,23 +39,22 @@ class ProfileContainer extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
-    padding: 50
-  }
+    padding: 50,
+  },
 });
 
 const mapStateToProps = state => ({
-  loggedInStatus: state.loggedInStatus
+  loggedInStatus: state.loggedInStatus,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionCreators, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 ProfileContainer.propTypes = {
   logIn: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
-    goBack: PropTypes.func
-  }).isRequired
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 
 export default connect(

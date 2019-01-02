@@ -25,12 +25,7 @@ export default class NextArrowButton extends Component {
           onPress={handleNextButton}
           disabled={disabled}
         >
-          <Icon
-            name="angle-right"
-            color={colors.green01}
-            size={32}
-            style={styles.icon}
-          />
+          <Icon name="angle-right" color={colors.green01} size={32} style={styles.icon} />
         </TouchableHighlight>
       </View>
     );
@@ -39,7 +34,7 @@ export default class NextArrowButton extends Component {
 
 NextArrowButton.propTypes = {
   disabled: PropTypes.bool,
-  handleNextButton: PropTypes.func
+  handleNextButton: PropTypes.func,
 };
 
 const styles = StyleSheet.create({
@@ -47,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     right: 20,
     bottom: 20,
-    paddingTop: buttonWrapperPadding
+    paddingTop: buttonWrapperPadding,
   },
   button: {
     alignItems: "center",
@@ -55,10 +50,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: buttonSize,
     height: buttonSize,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   icon: {
     marginRight: -2,
-    marginTop: -2
-  }
+    marginTop: -2,
+  },
 });

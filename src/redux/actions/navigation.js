@@ -3,15 +3,12 @@ import user from "../../data/user.json";
 
 const setLoggedInState = loggedInState => ({
   type: types.SET_LOGGED_IN_STATE,
-  loggedInState
+  loggedInState,
 });
 
 const logIn = (email, password) => {
   const action = dispatch => {
-    if (
-      email.toLowerCase() === user.email.toLowerCase() &&
-      password === user.password
-    ) {
+    if (email.toLowerCase() === user.email.toLowerCase() && password === user.password) {
       dispatch(setLoggedInState(true));
       return true;
     }

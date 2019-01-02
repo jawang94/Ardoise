@@ -33,7 +33,7 @@ class LogIn extends Component {
     ),
     headerStyle: transparentHeaderStyle,
     headerTransparent: true,
-    headerTintColor: colors.white
+    headerTintColor: colors.white,
   });
 
   constructor(props) {
@@ -44,7 +44,7 @@ class LogIn extends Component {
       emailAddress: "",
       password: "",
       validPassword: false,
-      loadingVisible: false
+      loadingVisible: false,
     };
 
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
@@ -155,12 +155,7 @@ class LogIn extends Component {
           />
         </View>
         <Loader modalVisible={loadingVisible} animationType="fade" />
-        <View
-          style={[
-            styles.notificationWrapper,
-            { marginTop: notificationMarginTop }
-          ]}
-        >
+        <View style={[styles.notificationWrapper, { marginTop: notificationMarginTop }]}>
           <Notification
             showNotification={showNotification}
             handleCloseNotification={this.handleCloseNotification}
@@ -175,18 +170,17 @@ class LogIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedInStatus: state.loggedInStatus
+  loggedInStatus: state.loggedInStatus,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionCreators, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 LogIn.propTypes = {
   logIn: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
-    goBack: PropTypes.func
-  }).isRequired
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 
 export default connect(

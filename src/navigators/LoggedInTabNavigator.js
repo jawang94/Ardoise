@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  createBottomTabNavigator,
-  createStackNavigator
-} from "react-navigation";
+import { createBottomTabNavigator, createStackNavigator } from "react-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
 import ExploreContainer from "../containers/ExploreContainer";
 import InboxContainer from "../containers/InboxContainer";
@@ -18,13 +15,13 @@ const ExploreTab = createStackNavigator(
     ExploreContainer: {
       screen: ExploreContainer,
       navigationOptions: {
-        header: null
-      }
+        header: null,
+      },
     },
-    CreateList: { screen: CreateList }
+    CreateList: { screen: CreateList },
   },
   {
-    mode: "modal"
+    mode: "modal",
   }
 );
 
@@ -35,17 +32,15 @@ ExploreTab.navigationOptions = ({ navigation }) => {
   }
 
   return {
-    tabBarVisible
+    tabBarVisible,
   };
 };
 
 const CustomTabBarIcon = (name, size) => {
-  const icon = ({ tintColor }) => (
-    <Icon name={name} size={size} color={tintColor} />
-  );
+  const icon = ({ tintColor }) => <Icon name={name} size={size} color={tintColor} />;
 
   icon.propTypes = {
-    tintColor: PropTypes.string.isRequired
+    tintColor: PropTypes.string.isRequired,
   };
 
   return icon;
@@ -57,47 +52,47 @@ const LoggedInTabNavigator = createBottomTabNavigator(
       screen: ExploreTab,
       navigationOptions: {
         tabBarLabel: "EXPLORE",
-        tabBarIcon: CustomTabBarIcon("ios-search", 22)
-      }
+        tabBarIcon: CustomTabBarIcon("ios-search", 22),
+      },
     },
     Saved: {
       screen: SavedContainer,
       navigationOptions: {
         tabBarLabel: "SAVED",
-        tabBarIcon: CustomTabBarIcon("ios-heart-outline", 22)
-      }
+        tabBarIcon: CustomTabBarIcon("ios-heart-outline", 22),
+      },
     },
     Trips: {
       screen: TripsContainer,
       navigationOptions: {
         tabBarLabel: "TRIPS",
-        tabBarIcon: CustomTabBarIcon("ios-ionic", 21)
-      }
+        tabBarIcon: CustomTabBarIcon("ios-ionic", 21),
+      },
     },
     Inbox: {
       screen: InboxContainer,
       navigationOptions: {
         tabBarLabel: "INBOX",
-        tabBarIcon: CustomTabBarIcon("ios-archive-outline", 25)
-      }
+        tabBarIcon: CustomTabBarIcon("ios-archive-outline", 25),
+      },
     },
     Profile: {
       screen: ProfileContainer,
       navigationOptions: {
         tabBarLabel: "PROFILE",
-        tabBarIcon: CustomTabBarIcon("ios-contact-outline", 22)
-      }
-    }
+        tabBarIcon: CustomTabBarIcon("ios-contact-outline", 22),
+      },
+    },
   },
   {
     tabBarOptions: {
       labelStyle: {
         fontWeight: "600",
-        marginBottom: 5
+        marginBottom: 5,
       },
-      activeTintColor: colors.pink
+      activeTintColor: colors.pink,
     },
-    tabBarPosition: "bottom"
+    tabBarPosition: "bottom",
   }
 );
 

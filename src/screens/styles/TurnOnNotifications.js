@@ -4,39 +4,39 @@ import colors from "../../styles/colors";
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   content: {
     marginTop: 80,
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   icon: {
     color: colors.green01,
-    marginBottom: 15
+    marginBottom: 15,
   },
   title: {
     fontSize: 28,
     color: colors.black,
-    fontWeight: "600"
+    fontWeight: "600",
   },
   description: {
     fontSize: 16,
     paddingRight: 30,
     marginTop: 15,
-    lineHeight: 22
+    lineHeight: 22,
   },
   notifyButton: {
     width: 160,
     paddingTop: 12,
     paddingBottom: 12,
     borderRadius: 3,
-    marginTop: 40
+    marginTop: 40,
   },
   buttonText: {
     fontSize: 18,
     fontWeight: "600",
-    alignSelf: "center"
+    alignSelf: "center",
   },
   skipButton: {
     borderColor: colors.green01,
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 12,
     borderRadius: 3,
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 });
 
 export default styles;

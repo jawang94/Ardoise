@@ -21,7 +21,7 @@ export default class ForgotPassword extends Component {
     ),
     headerStyle: transparentHeaderStyle,
     headerTransparent: true,
-    headerTintColor: colors.white
+    headerTintColor: colors.white,
   });
 
   constructor(props) {
@@ -30,7 +30,7 @@ export default class ForgotPassword extends Component {
       formValid: true,
       loadingVisible: false,
       validEmail: false,
-      emailAddress: ""
+      emailAddress: "",
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.goToNextStep = this.goToNextStep.bind(this);
@@ -60,12 +60,12 @@ export default class ForgotPassword extends Component {
       if (emailAddress === "wrong@email.com") {
         this.setState({
           loadingVisible: false,
-          formValid: false
+          formValid: false,
         });
       } else {
         this.setState({
           loadingVisible: false,
-          formValid: true
+          formValid: true,
         });
       }
     }, 2000);
@@ -86,9 +86,7 @@ export default class ForgotPassword extends Component {
       >
         <View style={styles.scrollViewWrapper}>
           <ScrollView style={styles.scrollView}>
-            <Text style={styles.forgotPasswordHeading}>
-              Forgot your password?
-            </Text>
+            <Text style={styles.forgotPasswordHeading}>Forgot your password?</Text>
             <Text style={styles.forgotPasswordSubheading}>
               Enter your email to find your account
             </Text>
@@ -104,10 +102,7 @@ export default class ForgotPassword extends Component {
               showCheckmark={validEmail}
             />
           </ScrollView>
-          <NextArrowButton
-            handleNextButton={this.goToNextStep}
-            disabled={!validEmail}
-          />
+          <NextArrowButton handleNextButton={this.goToNextStep} disabled={!validEmail} />
         </View>
         <Loader modalVisible={loadingVisible} animationType="fade" />
         <View style={styles.notificationWrapper}>

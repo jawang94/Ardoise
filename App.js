@@ -12,7 +12,7 @@ StatusBar.setBarStyle("light-content", true);
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: NETWORK_INTERFACE }),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 class App extends Component {

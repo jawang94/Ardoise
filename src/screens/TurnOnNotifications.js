@@ -8,7 +8,7 @@ import transparentHeaderStyle from "../styles/navigation";
 import styles from "./styles/TurnOnNotifications";
 
 const navigateToTabsAction = NavigationActions.navigate({
-  routeName: "LoggedIn"
+  routeName: "LoggedIn",
 });
 
 export default class TurnOnNotifications extends Component {
@@ -16,7 +16,7 @@ export default class TurnOnNotifications extends Component {
     headerLeft: null,
     headerStyle: transparentHeaderStyle,
     headerTransparent: true,
-    gesturesEnabled: false
+    gesturesEnabled: false,
   });
 
   constructor(props) {
@@ -24,15 +24,11 @@ export default class TurnOnNotifications extends Component {
 
     this.state = {
       pressNotifyBtn: false,
-      pressSkipBtn: false
+      pressSkipBtn: false,
     };
 
-    this.handleNotifyBtnHideUnderlay = this.handleNotifyBtnHideUnderlay.bind(
-      this
-    );
-    this.handleNotifyBtnShowUnderlay = this.handleNotifyBtnShowUnderlay.bind(
-      this
-    );
+    this.handleNotifyBtnHideUnderlay = this.handleNotifyBtnHideUnderlay.bind(this);
+    this.handleNotifyBtnShowUnderlay = this.handleNotifyBtnShowUnderlay.bind(this);
     this.handleSkipBtnHideUnderlay = this.handleSkipBtnHideUnderlay.bind(this);
     this.handleSkipBtnShowUnderlay = this.handleSkipBtnShowUnderlay.bind(this);
   }
@@ -63,8 +59,8 @@ export default class TurnOnNotifications extends Component {
           <Icon name="comments-o" size={46} style={styles.icon} />
           <Text style={styles.title}>Turn on notifications?</Text>
           <Text style={styles.description}>
-            We can let you know when someone messages you, or notify you about
-            other important account activity.
+            We can let you know when someone messages you, or notify you about other important
+            account activity.
           </Text>
           <TouchableHighlight
             style={[{ backgroundColor: notifyBtnColor }, styles.notifyButton]}
@@ -73,23 +69,19 @@ export default class TurnOnNotifications extends Component {
             onHideUnderlay={this.handleNotifyBtnHideUnderlay}
             underlayColor={colors.green02}
           >
-            <Text style={[{ color: colors.white }, styles.buttonText]}>
-              Yes, notify me
-            </Text>
+            <Text style={[{ color: colors.white }, styles.buttonText]}>Yes, notify me</Text>
           </TouchableHighlight>
           <TouchableHighlight
             style={[
               { backgroundColor: pressSkipBtn ? colors.gray01 : "transparent" },
-              styles.skipButton
+              styles.skipButton,
             ]}
             onPress={() => navigation.dispatch(navigateToTabsAction)}
             onShowUnderlay={this.handleSkipBtnShowUnderlay}
             onHideUnderlay={this.handleSkipBtnHideUnderlay}
             underlayColor={colors.gray01}
           >
-            <Text style={[{ color: colors.green01 }, styles.buttonText]}>
-              Skip
-            </Text>
+            <Text style={[{ color: colors.green01 }, styles.buttonText]}>Skip</Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -99,6 +91,6 @@ export default class TurnOnNotifications extends Component {
 
 TurnOnNotifications.propTypes = {
   navigation: PropTypes.shape({
-    dispatch: PropTypes.func
-  }).isRequired
+    dispatch: PropTypes.func,
+  }).isRequired,
 };

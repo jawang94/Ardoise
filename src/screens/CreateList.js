@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableHighlight,
-  ScrollView
-} from "react-native";
+import { View, Text, TouchableOpacity, TouchableHighlight, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -21,14 +15,11 @@ import styles from "./styles/CreateList";
 class CreateList extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
-      <TouchableOpacity
-        style={styles.closeButton}
-        onPress={() => navigation.goBack()}
-      >
+      <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
         <Icon name="md-close" size={30} color={colors.lightBlack} />
       </TouchableOpacity>
     ),
-    headerStyle: styles.headerStyle
+    headerStyle: styles.headerStyle,
   });
 
   constructor(props) {
@@ -37,7 +28,7 @@ class CreateList extends Component {
     this.state = {
       privacyOption: "private",
       location: props.navigation.state.params.listing.location,
-      loading: false
+      loading: false,
     };
 
     this.listCreated = false;
@@ -48,10 +39,7 @@ class CreateList extends Component {
 
   componentWillUnmount() {
     const { navigation } = this.props;
-    navigation.state.params.onCreateListClose(
-      navigation.state.params.listing.id,
-      this.listCreated
-    );
+    navigation.state.params.onCreateListClose(navigation.state.params.listing.id, this.listCreated);
   }
 
   selectPrivacyOption(privacyOption) {
@@ -98,7 +86,7 @@ class CreateList extends Component {
                 inputStyle={{
                   fontSize: 18,
                   fontWeight: "400",
-                  paddingBottom: 30
+                  paddingBottom: 30,
                 }}
                 onChangeText={this.handleLocationChange}
                 showCheckmark={false}
@@ -115,8 +103,7 @@ class CreateList extends Component {
                 <View>
                   <Text style={styles.privacyOptionTitle}>Public</Text>
                   <Text style={styles.privacyOptionDescription}>
-                    Visible to everyone and included on your public Airbnb
-                    profile.
+                    Visible to everyone and included on your public Airbnb profile.
                   </Text>
                   <View style={styles.privacyRadioInput}>
                     <RadioInput
@@ -168,11 +155,7 @@ class CreateList extends Component {
             loading={loading}
             icon={
               <View style={styles.buttonIcon}>
-                <FontAwesomeIcon
-                  name="angle-right"
-                  color={colors.white}
-                  size={30}
-                />
+                <FontAwesomeIcon name="angle-right" color={colors.white} size={30} />
               </View>
             }
             handleOnPress={this.handleCreateList}
@@ -183,19 +166,18 @@ class CreateList extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionCreators, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 CreateList.propTypes = {
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       params: PropTypes.shape({
         listing: PropTypes.shape({
-          location: PropTypes.string
-        })
-      })
-    })
-  }).isRequired
+          location: PropTypes.string,
+        }),
+      }),
+    }),
+  }).isRequired,
 };
 
 export default connect(
