@@ -7,6 +7,19 @@ import ActionCreators from "../redux/actions";
 import RoundedButton from "../components/buttons/RoundedButton";
 import colors from "../styles/colors";
 
+const styles = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    padding: 50,
+  },
+});
+
+const mapStateToProps = state => ({
+  loggedInStatus: state.loggedInStatus,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
+
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
@@ -35,19 +48,6 @@ class ProfileContainer extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    display: "flex",
-    padding: 50,
-  },
-});
-
-const mapStateToProps = state => ({
-  loggedInStatus: state.loggedInStatus,
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 ProfileContainer.propTypes = {
   logIn: PropTypes.func.isRequired,

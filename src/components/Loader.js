@@ -2,29 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { View, Image, Modal, StyleSheet } from "react-native";
 import colors from "../styles/colors";
-
-export default class Loader extends Component {
-  render() {
-    const { animationType, modalVisible } = this.props;
-    return (
-      <Modal animationType={animationType} transparent visible={modalVisible}>
-        <View style={styles.wrapper}>
-          <View style={styles.loaderContainer}>
-            <Image
-              style={styles.loaderImage}
-              source={require("../img/greenLoader.gif")}
-            />
-          </View>
-        </View>
-      </Modal>
-    );
-  }
-}
-
-Loader.propTypes = {
-  animationType: PropTypes.string.isRequired,
-  modalVisible: PropTypes.bool.isRequired
-};
+import greenLoader from "../img/greenLoader.gif";
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -34,7 +12,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     top: 0,
-    left: 0
+    left: 0,
   },
   loaderContainer: {
     width: 90,
@@ -45,7 +23,7 @@ const styles = StyleSheet.create({
     left: "50%",
     top: "50%",
     marginLeft: -45,
-    marginTop: -45
+    marginTop: -45,
   },
   loaderImage: {
     width: 70,
@@ -55,6 +33,26 @@ const styles = StyleSheet.create({
     left: "50%",
     marginLeft: -35,
     top: "50%",
-    marginTop: -35
-  }
+    marginTop: -35,
+  },
 });
+
+export default class Loader extends Component {
+  render() {
+    const { animationType, modalVisible } = this.props;
+    return (
+      <Modal animationType={animationType} transparent visible={modalVisible}>
+        <View style={styles.wrapper}>
+          <View style={styles.loaderContainer}>
+            <Image style={styles.loaderImage} source={greenLoader} />
+          </View>
+        </View>
+      </Modal>
+    );
+  }
+}
+
+Loader.propTypes = {
+  animationType: PropTypes.string.isRequired,
+  modalVisible: PropTypes.bool.isRequired,
+};

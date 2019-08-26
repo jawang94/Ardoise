@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Animated,
-  Easing
+  Easing,
 } from "react-native";
 import colors from "../../styles/colors";
 
@@ -18,7 +18,7 @@ export default class InputField extends Component {
     this.state = {
       secureInput: !(props.inputType === "text" || props.inputType === "email"),
       scaleCheckmarkValue: new Animated.Value(0),
-      inputValue: props.defaultValue
+      inputValue: props.defaultValue,
     };
     this.toggleShowPassword = this.toggleShowPassword.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
@@ -28,7 +28,7 @@ export default class InputField extends Component {
     Animated.timing(this.state.scaleCheckmarkValue, {
       toValue: value,
       duration: 400,
-      easing: Easing.easeOutBack
+      easing: Easing.easeOutBack,
     }).start();
   }
 
@@ -57,7 +57,7 @@ export default class InputField extends Component {
       autoFocus,
       autoCapitalize,
       placeholder,
-      defaultValue
+      defaultValue,
     } = this.props;
     const { secureInput, scaleCheckmarkValue, inputValue } = this.state;
     const fontSize = labelTextSize || 14;
@@ -73,7 +73,7 @@ export default class InputField extends Component {
 
     const iconScale = scaleCheckmarkValue.interpolate({
       inputRange: [0, 0.5, 1],
-      outputRange: [0.01, 1.6, 1]
+      outputRange: [0.01, 1.6, 1],
     });
 
     const scaleValue = showCheckmark ? 1 : 0;
@@ -81,32 +81,20 @@ export default class InputField extends Component {
 
     return (
       <View style={[customStyle, styles.wrapper]}>
-        <Text style={[{ fontWeight, color, fontSize }, styles.label]}>
-          {labelText}
-        </Text>
+        <Text style={[{ fontWeight, color, fontSize }, styles.label]}>{labelText}</Text>
         {inputType === "password" ? (
-          <TouchableOpacity
-            style={styles.showButton}
-            onPress={this.toggleShowPassword}
-          >
-            <Text style={styles.showButtonText}>
-              {secureInput ? "Show" : "Hide"}
-            </Text>
+          <TouchableOpacity style={styles.showButton} onPress={this.toggleShowPassword}>
+            <Text style={styles.showButtonText}>{secureInput ? "Show" : "Hide"}</Text>
           </TouchableOpacity>
         ) : null}
-        <Animated.View
-          style={[
-            { transform: [{ scale: iconScale }] },
-            styles.checkmarkWrapper
-          ]}
-        >
+        <Animated.View style={[{ transform: [{ scale: iconScale }] }, styles.checkmarkWrapper]}>
           <Icon name="check" color={colors.white} size={20} />
         </Animated.View>
         <TextInput
           style={[
             { color: inputColor, borderBottomColor: borderBottom },
             inputStyle,
-            styles.inputField
+            styles.inputField,
           ]}
           secureTextEntry={secureInput}
           onChangeText={this.onChangeText}
@@ -139,31 +127,31 @@ InputField.propTypes = {
   labelTextWeight: PropTypes.string,
   inputStyle: PropTypes.object,
   placeholder: PropTypes.string,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
 };
 
 const styles = StyleSheet.create({
   wrapper: {
-    display: "flex"
+    display: "flex",
   },
   label: {
-    marginBottom: 20
+    marginBottom: 20,
   },
   inputField: {
     borderBottomWidth: 1,
-    paddingTop: 5
+    paddingTop: 5,
   },
   showButton: {
     position: "absolute",
-    right: 0
+    right: 0,
   },
   showButtonText: {
     color: colors.white,
-    fontWeight: "700"
+    fontWeight: "700",
   },
   checkmarkWrapper: {
     position: "absolute",
     right: 0,
-    bottom: 12
-  }
+    bottom: 12,
+  },
 });
